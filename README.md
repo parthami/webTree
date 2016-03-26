@@ -7,7 +7,7 @@ I originally came up with this concept to create a program that can create a tre
 —sometimes concealing movies in JPEG or PDF files. They’re then using a Facebook group to direct people to those files, creating a robust, completely free file 
 sharing network. 
 
-on [Motherboard Vice](http://motherboard.vice.com/read/wikipedia-zero-facebook-free-basics-angola-pirates-zero-rating) post on Reddit. 
+from a [Motherboard Vice](http://motherboard.vice.com/read/wikipedia-zero-facebook-free-basics-angola-pirates-zero-rating) article posted on Reddit. 
 
 I was thinking of different ideas of stop or track this exploit since the article talks about the difficulties behind stopping this. Originally an idea to track Wikipedia pages and to see all the connected pages from each page. I realise that program would also be able to parse all websites and display the nodes.
 
