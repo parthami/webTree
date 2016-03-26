@@ -1,6 +1,6 @@
 {
 	"name": "webTree",
 	"version": "-",
-	"description": "A general website parser to creates a tree visualisation of linked websites"
+	"description": "A general website parser to creates a tree visualisation of linked websites",
 	"author": "Parth Chandratreya <p@rthc.co.uk>"
 }	
