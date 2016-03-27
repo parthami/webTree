@@ -13,7 +13,10 @@ I was thinking of different ideas of stop or track this exploit since the articl
 
 ### Visual Aspect
 Current plan is to implement the visual aspect of the program similar to the version control visualiser, [gource](http://gource.io/).
-# Documentation 
+# Documentation
+ ~~Predominantly using JavaScript~~
+
+ Initial plan was to predominantly use JavaScript but after further reading, it is not possible to scrap HTML from another website using JavaScript due to its [Same Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). Currently looking into jQuery.
 ### Changelog
 Planning to use https://github.com/skywinder/github-changelog-generator for change log purposes.
 ### Initial workflow
