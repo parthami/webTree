@@ -1,6 +1,23 @@
 {
-	"name": "webTree",
-	"version": "-",
-	"description": "A general website parser to creates a tree visualisation of linked websites",
-	"author": "Parth Chandratreya <p@rthc.co.uk>"
-}	
+  "name": "web-tree",
+  "version": "0.0.1",
+  "description": "A general website parser which creates a tree visualisation of a website and it's links",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parthami/webTree.git"
+  },
+  "keywords": [
+    "webTree",
+    "web-tree"
+  ],
+  "author": "Parth Chandratreya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parthami/webTree/issues"
+  },
+  "homepage": "https://github.com/parthami/webTree#readme"
+}
