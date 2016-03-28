@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/parthami/webTree/issues"
   },
-  "homepage": "https://github.com/parthami/webTree#readme"
+  "homepage": "https://github.com/parthami/webTree#readme",
+  "dependencies": {
+    "formidable": "^1.0.17"
+  }
 }
