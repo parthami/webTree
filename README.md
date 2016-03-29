@@ -21,7 +21,7 @@ Current plan is to implement the visual aspect of the program similar to the ver
 Planning to use https://github.com/skywinder/github-changelog-generator for change log purposes.
 ### Initial workflow
 - [x] Write up readme
-- [ ] Take in a html input
+- [x] Take in a html input
 - [ ] Connect to local host website
 - [ ] Take in the HTML input from local host
 - [ ] Take in local host from a link and taking a empty HTML input
