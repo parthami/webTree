@@ -21,15 +21,13 @@ It might not possible to scrap HTML from another website using JavaScript due to
 Planning to use [this](https://github.com/skywinder/github-changelog-generator) for change log purposes.
 ### Initial workflow (Needs formatting)
 - [x] Write up readme
-- [x] Take in a html input
 - [x] Connect to local host website
-- [ ] Take in the HTML input from local host
-- [ ] Take in local host from a link and taking a empty HTML input
-- [ ] Stop parsing if no website found 
-- [ ] Take in local host from a link and taking a HTML input
-- [ ] Parse any link found.
-- [ ] Connect to link
+- [x] Take in a html input [1]
+- [ ] Parse any websites from the html
+- [ ] Connect to links
 - [ ] Create a connection between the links
-- [ ] Rinse and repeat.
+- [ ] Rinse and repeat from [1].
+- [ ] Create graph from connected links
+- [ ] Display graph
 
 
