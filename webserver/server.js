@@ -1,18 +1,19 @@
 /**
  * Created by pac on 26/03/16.
  */
-
 var http = require('http');
 var fs = require('fs');
 var formidable = require("formidable");
 var util = require('util');
 var url = require("url");
+var request = require('request');
+var HTMLcode = "";
 
 var server = http.createServer(function (req, res) {
     if (req.method.toLowerCase() == 'get') {
         displayForm(res);
     } else if (req.method.toLowerCase() == 'post') {
-        fieldProcess(req, res);
+        urlProcess(req);
     }
 });
 
@@ -27,21 +28,14 @@ function displayForm(res) {
     });
 }
 
-function fieldProcess(req, res) {
+function urlProcess(req) {
     var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-       urlProcess(fields.website);
+    form.parse(req, function (err, fields) {
+        request({uri: fields.website}, function (error, response, body) {
+            HTMLcode = body;
+            console.log(HTMLcode);
+        });
     });
-}
-
-function urlProcess(urlString) {
-    console.log(urlString);
-    http.get({host:url.format(urlString)}, function(res) {
-        console.log("Got response: " + res.statusCode);
-    }).on('error', function(e) {
-        console.log("Got error: " + e.message);
-    });
-
 }
 
 server.listen(8081);
