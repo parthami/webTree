@@ -16,13 +16,13 @@ Current plan is to implement the visual aspect of the program similar to the ver
 # Documentation
  ~~Predominantly using JavaScript~~
 
- Initial plan was to predominantly use JavaScript but after further reading, it is not possible to scrap HTML from another website using JavaScript due to its [Same Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). Currently looking into jQuery.
+It might not possible to scrap HTML from another website using JavaScript due to its [Same Origin Policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy). jQuery could be used for this aspect.
 ### Changelog
-Planning to use https://github.com/skywinder/github-changelog-generator for change log purposes.
-### Initial workflow
+Planning to use [this](https://github.com/skywinder/github-changelog-generator) for change log purposes.
+### Initial workflow (Needs formatting)
 - [x] Write up readme
 - [x] Take in a html input
-- [ ] Connect to local host website
+- [x] Connect to local host website
 - [ ] Take in the HTML input from local host
 - [ ] Take in local host from a link and taking a empty HTML input
 - [ ] Stop parsing if no website found 
