@@ -8,16 +8,16 @@ var util = require('util');
 var url = require("url");
 var request = require('request');
 var cheerio = require('cheerio');
-var website;
 var links;
-var wikiRegex = new RegExp('\/wiki\/[^"]+/g');
+var wikiRegex = new RegExp('\/wiki\/[^.]');
+urls = [];
 
 var server = http.createServer(function (req, res) {
     if (req.method.toLowerCase() == 'get') {
         displayForm(res);
     } else if (req.method.toLowerCase() == 'post') {
         parseForm(req);
-        parseURL(website);
+        parseURL(urls);
     }
 });
 
@@ -35,20 +35,32 @@ function displayForm(res) {
 function parseForm(req) {
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields) {
-        website = fields.website;
-        console.log(website);
+        var element = {url: fields.website, parsed: false};
+        urls.push(element);
+        console.log("Adding element "+urls.length);
     });
 }
 
-function parseURL(url){
-    console.log(url);
-    // request(url, function(err, resp, body){
-    //     $ = cheerio.load(body);
-    //     links = $('a'); //jquery get all hyperlinks
-    //     $(links).each(function(i, link){
-    //         console.log($(link).text() + ':\n  ' + $(link).attr('href'));
-    //     });
-    // });
+function parseURL(urlArray) {
+    console.log("Parsing element at : "+urls.length);
+    for(var i = 0; i < urlArray.length; i++){
+        request(urlArray[i].url, function(err, resp, body){
+                $ = cheerio.load(body);
+                links = $('a');
+                $(links).each(function(i, link){
+                    var linkString;
+                    linkString = $(link).attr('href');
+                    if(linkString != undefined && linkString.match(wikiRegex))
+                    {
+                        // console.log(linkString);
+                        var element  = { url: 'https://en.wikipedia.org'+linkString.toString(), parsed: false};
+                        urlArray.push(element)
+                    }
+                });
+            });
+            urlArray[i].parsed = true;
+    }
+    console.log("URL array length: "+urlArray.length);
 }
 
 server.listen(8081);
