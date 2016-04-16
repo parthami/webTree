@@ -10,13 +10,15 @@ var request = require('request');
 var cheerio = require('cheerio');
 var links;
 var wikiRegex = new RegExp('\/wiki\/[^.]');
-urls = [];
+urls = new Set();
+branching = 1;
 
 var server = http.createServer(function (req, res) {
     if (req.method.toLowerCase() == 'get') {
         displayForm(res);
     } else if (req.method.toLowerCase() == 'post') {
         parseForm(req);
+        parseURL(urls);
         parseURL(urls);
     }
 });
@@ -37,12 +39,12 @@ function parseForm(req) {
     form.parse(req, function (err, fields) {
         var element = {url: fields.website, parsed: false};
         urls.push(element);
-        console.log("Adding element "+urls.length);
+        // branching = fields.branch;
+        // console.log("Adding element "+urls.length);
     });
 }
 
 function parseURL(urlArray) {
-    console.log("Parsing element at : "+urls.length);
     for(var i = 0; i < urlArray.length; i++){
         request(urlArray[i].url, function(err, resp, body){
                 $ = cheerio.load(body);
@@ -52,15 +54,15 @@ function parseURL(urlArray) {
                     linkString = $(link).attr('href');
                     if(linkString != undefined && linkString.match(wikiRegex))
                     {
-                        // console.log(linkString);
+                        console.log("Parsing element "+linkString+" : "+i);
                         var element  = { url: 'https://en.wikipedia.org'+linkString.toString(), parsed: false};
-                        urlArray.push(element)
+                        urlArray.push(element);
+                        // console.log("URL array length: "+urlArray.length);
                     }
                 });
             });
             urlArray[i].parsed = true;
     }
-    console.log("URL array length: "+urlArray.length);
 }
 
 server.listen(8081);
