@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html>
+<style>
+    body {
+        background-color: #47d1da;
+        color: white;
+        font: 300 4em/150% Impact;
+        text-align: center;
+    }
+    select {
+        font: 300 1em/1% Impact;
+    }
+    fieldset {
+        border: 0;
+    }
+</style>
 <body>
 <form action="" method="post" enctype="multipart/form-data">
-    <fieldset>
-        <label for="website">Website to parse:</label>
-        <input type="text" id="website" name="website" placeholder="https://en.wikipedia.org/wiki/Main_Page" />
-        <br>
-        <label for="branch">Branching level:  </label>
-        <input type="text" id="branch" name="branch" placeholder="1 or 50" />
-        <input type="submit" value="Parse!" />
-    </fieldset>
+   <fieldset>
+       Website to Parse:
+       <select id ="website" name="website">
+           <option >Select a website</option>
+           <option value="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</option>
+       </select>
+       <br>Branch levels:
+       <select id="branch" name="branch">
+           <option value="1">1</option>
+       </select>
+       <br> <input type="submit" value="Parse!" />
+   </fieldset>
 </form>
 </body>
 </html>
